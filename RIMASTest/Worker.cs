@@ -139,7 +139,7 @@ public class Worker : BackgroundService
             mysqlConn.Open();
             serviceUrl = mysqlConn.QuerySingle<string>(serviceUrlQuery, dp);
             servicePath = mysqlConn.QuerySingle<string>(servicePathQuery, dp);
-            token = mysqlConn.QuerySingle<string>("SELECT Property AS Property2 FROM saimaster.SAI_Webservice_Prop WHERE Property = @Property2", dp);
+            token = mysqlConn.QuerySingle<string>(sb.ToString(), dp);
         }
         catch (Exception e)
         {
